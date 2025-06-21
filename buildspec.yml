@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.10
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt
+
+  pre_build:
+    commands:
+      - echo "Pre-build checks..."
+      - mkdir -p artifacts logs
+
+  build:
+    commands:
+      - echo "Running model training..."
+      - python src/pipeline/train_pipeline.py
+      - echo "Training complete."
+
+  post_build:
+    commands:
+      - echo "Build finished. Artifacts ready."
+
+artifacts:
+  files:
+    - artifacts/**
+    - logs/**
+    - requirements.txt
+    - application.py
+    - src/**
+  discard-paths: no
