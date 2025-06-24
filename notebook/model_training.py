@@ -14,8 +14,11 @@ from sklearn.model_selection import RandomizedSearchCV
 from catboost import CatBoostRegressor
 from xgboost import XGBRegressor
 import warnings
+import os
 
-df=pd.read_csv('notebook/data/stud.csv')
+base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(base_dir, 'data', 'stud.csv')
+df = pd.read_csv(file_path)
 print(df.head())
 
 x=df.drop(columns='math_score',axis=1)

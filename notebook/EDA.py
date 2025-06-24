@@ -4,8 +4,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
-
-df=pd.read_csv('notebook/data/stud.csv')
+import os
+base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(base_dir,'data', 'stud.csv')
+df = pd.read_csv(file_path)
 
 print(df.head())
 

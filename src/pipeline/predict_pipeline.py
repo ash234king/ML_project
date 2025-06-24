@@ -1,16 +1,19 @@
 import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 import pandas as pd
 from src.exceptions import CustomException
-
 from src.utils import load_object
+
 
 class PredictPipeline:
     def __init__(self):
         pass
     def predict(self,features):
         try:
-            model_path='artifacts/model.pkl'
-            preprocessor_path='artifacts/preprocessor.pkl'
+            base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+            model_path = os.path.join(base_path, 'artifacts', 'model.pkl')
+            preprocessor_path = os.path.join(base_path, 'artifacts', 'preprocessor.pkl')
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
             data_scaled=preprocessor.transform(features)
@@ -21,7 +24,7 @@ class PredictPipeline:
         
 
 
-class CustomData:                              ##responsible in ampping all the inputs that we are giving to the html with backend
+class CustomData:                              ##responsible in mapping all the inputs that we are giving to the html with backend
     def __init__(self,
                  gender:str,
                  race_ethnicity:str,
