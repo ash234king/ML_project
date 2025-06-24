@@ -26,7 +26,7 @@ def predict_datapoint():
             lunch=request.form.get('lunch'),
             test_preparation_course=request.form.get('test_preparation_course'),
             reading_score=float(request.form.get('reading_score')),
-            writing_score=float(request.form.get('reading_score'))
+            writing_score=float(request.form.get('writing_score'))
         )
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
