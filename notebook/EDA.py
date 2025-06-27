@@ -302,7 +302,7 @@ plt.show()
 
 
 plt.rcParams['figure.figsize']=(15,9)
-plt.style.use('seaborn-talk')
+plt.style.use('seaborn-v0_8-talk')
 sns.countplot(df['lunch'],palette='PuBu')
 plt.title('Comparison of different types of lunch',fontweight=30,fontsize=20)
 plt.xlabel('types of lunch')
